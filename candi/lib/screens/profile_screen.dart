@@ -9,13 +9,30 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   // TODO: 1. Deklarasikan variable yang dibutuhkan
-  bool isSignedIn = true;
+  bool isSignedIn = false;
   String fullName = 'Davianda Ersya';
   String userName = 'Ella';
   int favoriteCandiCount = 0;
 
   //TODO : 5. Implementasi fungsi Signin
+  void SignIn() {
+    setState(() {
+      isSignedIn = !isSignedIn;
+    });
+  }
+
+  void SignOut() {
+    setState(() {
+      isSignedIn = !isSignedIn;
+    });
+  }
+
   //TODO : 6. Implementasi fungsi Signout
+void signOut(){
+  setState(() {
+    isSignedIn = !isSignedIn;
+  });
+}
 
   @override
   Widget build(BuildContext context) {
@@ -195,9 +212,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 isSignedIn
                     ? TextButton(
-                        onPressed: (){}, child: const Text('Sign Out'))
+                        onPressed: signOut, child: const Text('Sign Out'))
                     : TextButton(
-                        onPressed: (){}, child: const Text('Sign in'))
+                        onPressed: SignIn, child: const Text('Sign in'))
               ],
             ),
           ),
