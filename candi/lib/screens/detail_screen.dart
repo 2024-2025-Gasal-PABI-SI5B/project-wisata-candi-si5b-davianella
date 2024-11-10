@@ -47,6 +47,91 @@ class DetailScreen extends StatelessWidget {
               ),
 
 
+              //DETAIL INFO
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //Info atas
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(candi.name,
+                        style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        IconButton(onPressed: (){},
+                        icon: const Icon(Icons.favorite_border))
+                      ],
+                      ),
+
+                    //Info Tengah
+                    const SizedBox(height: 16,),
+                    Row(
+                      children: [
+                        const Icon(Icons.place, color: Colors.red),
+                        const SizedBox(width: 8,),
+                        const SizedBox(
+                          width: 70,
+                          child: Text('lokasi', style: TextStyle(
+                          fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Text(': ${candi.location}',),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(Icons.calendar_month, color: Colors.blue),
+                        const SizedBox(width: 8,),
+                        const SizedBox(
+                          width: 70,
+                          child: Text('Dibangun', style: TextStyle(
+                          fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Text(': ${candi.built}',),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(Icons.house, color: Colors.green),
+                        const SizedBox(width: 8,),
+                        const SizedBox(
+                          width: 70,
+                          child: Text('Type', style: TextStyle(
+                          fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Text(': ${candi.type}',),
+                      ],
+                    ),
+                    //PEMISAH
+                    const SizedBox(height: 16,),
+                    Divider(
+                      color: Colors.deepPurple.shade100,
+                      ),
+                    const SizedBox(height: 16,),
+                    //Info bawah
+                    const Text(
+                      'Deskripsi',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 16,),
+                    Text(
+                      candi.description,
+                    )
+                  ],
+                ),
+              ),
             ],
             ),
         ),
