@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
-  // TODO : 1. Deklarasi Variable 
+class _SignUpScreenState extends State<SignUpScreen> {
+// TODO : 1. Deklarasi Variable 
+  final TextEditingController _fullnameController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   String _errorText = '';
-  bool _isSignIn = false;
+  bool _isSignUp = false;
   bool _obscurePassword = true;
 
   @override
@@ -22,7 +22,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       //TODO: 2. Pasang AppBar
       appBar: AppBar(
-        title: const Text('Sign In'),
+        title: const Text('Sign Up'),
       ),
       //TODO: 3. Pasang Body
       body: Center(
@@ -35,7 +35,18 @@ class _SignInScreenState extends State<SignInScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  //TODO : 5. Buat TextformField untuk Nama Pengguna
+                  //TODO : 5. Buat TextformField untuk Nama Lengkap
+                  TextFormField(
+                    controller: _fullnameController,
+                    decoration: const InputDecoration(
+                      labelText: 'Nama',
+                      hintText: 'Masukkan Nama Lengkap',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+
+                  //TODO : 6. Buat TextfromField untuk username
+                  const SizedBox(height: 20),
                   TextFormField(
                     controller: _usernameController,
                     decoration: const InputDecoration(
@@ -45,7 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   ),
 
-                  //TODO : 6. Buat TextformField untuk password
+                  //TODO : 7. Buat TextformField untuk password
                   const SizedBox(height: 20),
                   TextFormField(
                     controller: _passwordController,
@@ -68,37 +79,13 @@ class _SignInScreenState extends State<SignInScreen> {
                     obscureText: _obscurePassword,
                   ),
 
-                  //TODO : 7. Buat Elevated Button Sign In
+                  //TODO : 8. Buat Elevated Button Sign Up
                   const SizedBox(
                     height: 20,
                   ),
                   ElevatedButton(
                     onPressed: () {},
-                    child: const Text('Sign In'),
-                  ),
-
-                  //TODO : 8. Buat Elevated Button Sign Up
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  //TextButton(onPressed: (){}, 
-                  //child: Text('Belum Punya Akun? Daftar Disini.')),
-                  RichText(
-                    text: TextSpan(
-                      text: 'Belum Punya Akun?',
-                      style:
-                          const TextStyle(fontSize: 16, color: Colors.deepPurple),
-                      children: [
-                        TextSpan(
-                          text: 'Daftar Di sini',
-                          style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.blue,
-                              decoration: TextDecoration.underline),
-                          recognizer: TapGestureRecognizer()..onTap = () {},
-                        ),
-                      ],
-                    ),
+                    child: const Text('Sign Up'),
                   ),
                 ],
               ),
