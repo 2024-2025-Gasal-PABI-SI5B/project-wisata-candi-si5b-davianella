@@ -84,7 +84,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 20,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    //TODO : 9. Buat method password
+                    onPressed: (){
+                      setState(() {
+                        String password = _passwordController.text;
+                        if (password.length < 8) {
+                          _errorText = 'Kata sandi harus minimal 8 karakter';
+                        } else if (!RegExp(r'[A-Z]').hasMatch(password)) {
+                          _errorText = 'Kata sandi harus mengandung minimal satu huruf besar';
+                        } else if (!RegExp(r'[a-z]').hasMatch(password)) {
+                          _errorText = 'Kata sandi harus mengandung minimal satu huruf kecil';
+                        } else if (!RegExp(r'[0-9]').hasMatch(password)) {
+                          _errorText = 'Kata sandi harus mengandung minimal satu angka';
+                        } else if (!RegExp(r'[!@#\$&*~]').hasMatch(password)) {
+                          _errorText = 'Kata sandi harus mengandung minimal satu karakter khusus (!@#\$&*~)';
+                        } else {
+                        // Reset error text jika password valid
+                        _errorText = '';
+                        _isSignUp = true;
+                       }
+                      });
+                    },
                     child: const Text('Sign Up'),
                   ),
                 ],
